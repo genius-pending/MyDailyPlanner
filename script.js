@@ -6,7 +6,7 @@ document.getElementById("date").innerText = today;
 
 const time = moment()
 function displayTime() {
-    document.getElementById("time").innerText = time.format('HH:mm');
+    document.getElementById("time").innerText = time.format('HH:mm:ss');
     setTimeout(displayTime, 1000);
 }
 
