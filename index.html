@@ -9,7 +9,8 @@
 
      <!-- Boostrap Stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/9b22d73af0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="style.css">
 
@@ -28,12 +29,13 @@
         <div class="container text-center  ">
             <h1 class="display-4">Weekday Planner </h1>
             <p class="lead">A simple planner to keep you on track of your day!</p>
-            <p class="lead todaysDate"></p>
+            <p class="lead todaysDate" id="date"></p>
+            <p class="lead"id="time"></p>
         </div>
     </div>
 
 
-
+    <!-- Timeblocks -->
     <div class="container text-right  plannerDiv">
         <div class="row row9 ">
 
@@ -45,7 +47,7 @@
 
             <div class="input-group  col-10 form-group">
                 <textarea id=text9AM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="9"></textarea>
+                    data-hour ="9"></textarea>
 
                 <button class=" col-1 
                  btn  " style="left: 60px;" > <span style="font-size: 2.5em; color: royalblue"><i class="fas fa-save"></i>
@@ -63,7 +65,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text10AM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="10"></textarea>
+                data-hour ="10"></textarea>
 
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
@@ -80,7 +82,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text11AM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="11"></textarea>
+                data-hour ="11"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -96,7 +98,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text12AM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="12"></textarea>
+                data-hour ="12"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -112,7 +114,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text1PM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="13"></textarea>
+                data-hour ="13"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -128,7 +130,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text2PM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="14"></textarea>
+                data-hour ="14"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -144,7 +146,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text3PM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="15"></textarea>
+                data-hour ="15"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -160,7 +162,7 @@
             </div>
             <div class="input-group col-10 form-group">
                 <textarea id=text4PM class="form-control custom-control textborder" rows="2" style="resize:none"
-                    name="16"></textarea>
+                data-hour ="16"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -175,7 +177,7 @@
             </div>
             <div class="input-group    col-10 form-group">
                 <textarea id=text5PM class="textborder form-control custom-control" rows="2" style="resize:none"
-                    name="17"></textarea>
+                data-hour ="17"></textarea>
                 <button class="  col-1 
                     btn  "style="left: 60px;" > <span style="font-size: 2.5em; color:  royalblue"><i class="fas fa-save"></i>
                     </span></button>
@@ -187,7 +189,7 @@
 
 
 
-    <!-- Moments.js libraray added for the use of days and times live update -->
+    <!-- Moments.js added for the use of days and times live update -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
     integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
@@ -196,7 +198,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
 
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
